@@ -577,6 +577,7 @@
     "maintenanceStatus-under-maintenance": "In onderhoud",
     "maintenanceStatus-inactive": "Inactief",
     "maintenanceStatus-scheduled": "Ingepland",
+    "maintenanceStatus-notice": "Aankondiging",
     "maintenanceStatus-ended": "Beëindigd",
     "Display Timezone": "Toon tijdzone",
     "Server Timezone": "Server tijdzone",

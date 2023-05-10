@@ -243,6 +243,12 @@ export default {
             }
         }
 
+        &.notice {
+            .circle {
+                background-color: $warning;
+            }
+        }
+
         &.ended {
             .left-part {
                 opacity: 0.3;

@@ -423,6 +423,7 @@
     "maintenanceStatus-under-maintenance": "Under Maintenance",
     "maintenanceStatus-inactive": "Inactive",
     "maintenanceStatus-scheduled": "Scheduled",
+    "maintenanceStatus-notice": "Notice",
     "maintenanceStatus-ended": "Ended",
     "maintenanceStatus-unknown": "Unknown",
     "Display Timezone": "Display Timezone",

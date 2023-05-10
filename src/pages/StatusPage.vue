@@ -254,7 +254,11 @@
             <template v-if="maintenanceList.length > 0">
                 <div
                     v-for="maintenance in maintenanceList" :key="maintenance.id"
-                    class="shadow-box alert mb-4 p-3 bg-maintenance mt-4 position-relative" role="alert"
+                    class="shadow-box alert mb-4 p-3 mt-4 position-relative" role="alert"
+                    :class="{
+                        'bg-notice': maintenance.status === 'notice',
+                        'bg-maintenance': maintenance.status === 'under-maintenance'
+                    }"
                 >
                     <h4 class="alert-heading">{{ maintenance.title }}</h4>
                     <!-- eslint-disable-next-line vue/no-v-html-->
@@ -1175,6 +1179,16 @@ footer {
     .alert-heading {
         font-weight: bold;
     }
+}
+
+.bg-notice {
+    .alert-heading {
+        font-weight: bold;
+        &:before {
+            content: "Scheduled Notice - ";
+        }
+    }
+    background-color: $warning;
 }
 
 .refresh-info {

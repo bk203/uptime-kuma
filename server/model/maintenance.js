@@ -316,6 +316,10 @@ class Maintenance extends BeanModel {
         return (await this.getStatus()) === "under-maintenance";
     }
 
+    async isScheduledWithinTimeframe() {
+        return (await this.getStatus()) === "notice";
+    }
+
     async getTimezone() {
         if (!this.timezone || this.timezone === "SAME_AS_SERVER") {
             return await UptimeKumaServer.getInstance().getTimezone();
@@ -334,6 +338,11 @@ class Maintenance extends BeanModel {
 
         if (this.strategy === "manual") {
             return "under-maintenance";
+        }
+
+        // Preemptive notice of maintenance
+        if (this.start_date && dayjs().isAfter(dayjs.tz(this.start_date, await this.getTimezone()).subtract(2, "week"))) {
+            return "notice";
         }
 
         // Check if the maintenance is started
