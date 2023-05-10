@@ -4,7 +4,6 @@ const cheerio = require("cheerio");
 const { UptimeKumaServer } = require("../uptime-kuma-server");
 const jsesc = require("jsesc");
 const googleAnalytics = require("../google-analytics");
-const { log } = require("../../src/util");
 
 class StatusPage extends BeanModel {
 
@@ -298,7 +297,6 @@ class StatusPage extends BeanModel {
 
             for (const maintenanceID of maintenanceIDList) {
                 let maintenance = UptimeKumaServer.getInstance().getMaintenance(maintenanceID);
-                log.debug("MATHIJS -3", maintenance);
                 if (maintenance && await maintenance.isUnderMaintenance()) {
                     publicMaintenanceList.push(await maintenance.toPublicJSON());
                 } else if (maintenance && await maintenance.isScheduledWithinTimeframe()) {
